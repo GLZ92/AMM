@@ -144,6 +144,7 @@
                 $this->connectToDB();
 
                 $libro = str_replace("'", "''", $libro); 
+                echo $libro;
                 if(self::$mysqli->errno > 0)
                     return "ERRORE";    
                 else
