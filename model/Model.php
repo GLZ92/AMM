@@ -142,9 +142,7 @@
                 $user = $_REQUEST['user'];
                 $libro = $_REQUEST['libro'];
                 $this->connectToDB();
-                echo $libro;
-                $libro = str_replace("'", "''", $libro); 
-                echo $libro;
+
                 if(self::$mysqli->errno > 0)
                     return "ERRORE";    
                 else
