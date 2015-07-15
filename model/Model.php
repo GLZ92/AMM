@@ -190,7 +190,7 @@
                     return "ERRORE";    
                 else
                 {   
-                    self::$mysqli->query("UPDATE libri SET prestatoA = NULL WHERE titolo = '$libro';");
+                    self::$mysqli->query("UPDATE libri SET prestatoA = NULL WHERE id = '$libro';");
                     if(self::$mysqli->errno > 0)
                         return "ERRORE";
                     else
