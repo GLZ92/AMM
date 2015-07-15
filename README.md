@@ -20,6 +20,7 @@ L'applicazione soddisfa i seguenti requisiti:
 6)Almeno una funzionalità ajax (presente nel file view/iscrizione.php)
 
 Credenziali:
+
 1) username = admin : password = admin
 
 2) username = user1 : password = user
