@@ -73,7 +73,7 @@
                 $this->connectToDB();
             else
                 return "ERRORE";
-            $result = self::$mysqli->query("SELECT titolo, nome, cognome FROM libri, autori WHERE autori.id = libri.autore_id AND prestatoA IS NULL;");
+            $result = self::$mysqli->query("SELECT titolo, libri.id, nome, cognome FROM libri, autori WHERE autori.id = libri.autore_id AND prestatoA IS NULL;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
             else
@@ -147,7 +147,7 @@
                     return "ERRORE";    
                 else
                 {        
-                    self::$mysqli->query("UPDATE libri SET prestatoA = (SELECT id FROM utenti WHERE username = '$user') WHERE titolo = '$libro' AND prestatoA IS NULL;");
+                    self::$mysqli->query("UPDATE libri SET prestatoA = (SELECT id FROM utenti WHERE username = '$user') WHERE id = '$libro' AND prestatoA IS NULL;");
 
                     if(self::$mysqli->errno > 0)    
                         return "ERRORE";

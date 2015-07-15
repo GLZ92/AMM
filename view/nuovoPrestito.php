@@ -12,7 +12,7 @@
             <label>Titolo libro</label>
             <select name='libro'>";
                 while (($row = $libri->fetch_row()) != null)
-                    echo "<option value = '{$row[0]}'>$row[0]</option>";
+                    echo "<option value = '{$row[1]}'>$row[0]</option>";
     echo    "</select>
             <br>
             <input type='submit' value='Conferma'>";
