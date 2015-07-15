@@ -11,9 +11,11 @@
 
         public function invoke($arg)
         {
+            /*se si entra per la prima volta nel sito o se si clicca su login si 
+             presenta il menu il login */
             if(($arg == "" && !isset($_SESSION['loggedIn'])) || ($arg == "loginAttempt"))
                 include 'view/loginAttempt.php';
-            else if($arg == "" && isset($_SESSION['loggedIn']))
+            else if($arg == "" && isset($_SESSION['loggedIn'])) //se ci si è loggati si da conferma
                 include 'view/loginDone.php';
             else if($arg == "login")
             {

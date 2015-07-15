@@ -15,6 +15,7 @@
             @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm15_loizeddaGiovanni");
         }
         
+        //gestione del tentativo di login
         public function login()
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
@@ -42,6 +43,7 @@
                 return "ERRORE";
         }	
 
+        //esecuzione del logout e distruzione della sessione
         public function logout()
         {
             $_SESSION = array();
@@ -50,6 +52,7 @@
             session_destroy();
         }
 
+        //restituisce l'elenco dei libri presenti nel database
         public function libri()
         {            
             if(isset($_SESSION["loggedIn"]))
@@ -63,6 +66,7 @@
                 return $result;
         }
         
+        //restituisce l'elenco dei libri non prestati
         public function libriNonPrestati()
         {            
             if(isset($_SESSION["loggedIn"]))
@@ -76,6 +80,7 @@
                 return $result;
         }
         
+        //gestione inserimento nuovo utente
         public function nuovoUtente()
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
@@ -115,6 +120,7 @@
                 return "ERRORE";
         }
         
+        //restituisce l'elenco degli utenti, escluso l'admin (ha id 1)
         public function elencoUtenti()
         {
             if(isset($_SESSION["loggedIn"]))
@@ -128,6 +134,7 @@
                 return $result;
         }
         
+        //gestisce l'assegnazione di un libro in prestito a un dato utente
         public function effettuaPrestito()
         {
             if(isset($_REQUEST['user']) && isset($_REQUEST['libro']))
@@ -170,6 +177,7 @@
                 return $result;
         }
         
+        //cancella un prestito
         public function cancellaPrestito()
         {
             if(isset($_REQUEST['libro']))
