@@ -142,11 +142,12 @@
                 $user = $_REQUEST['user'];
                 $libro = $_REQUEST['libro'];
                 $this->connectToDB();
-                
+
+                str_replace("'", "''", $user); 
                 if(self::$mysqli->errno > 0)
                     return "ERRORE";    
                 else
-                {                
+                {        
                     self::$mysqli->query("UPDATE libri SET prestatoA = (SELECT id FROM utenti WHERE username = '$user') WHERE titolo = '$libro' AND prestatoA IS NULL;");
 
                     if(self::$mysqli->errno > 0)    
@@ -159,6 +160,7 @@
                 "ERRORE";
         }
         
+        //restituisce l'elenco dei libri prestati
         public function prestiti()
         {            
             if(isset($_SESSION["loggedIn"]) && isset($_SESSION["admin"]))
