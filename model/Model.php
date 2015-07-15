@@ -19,7 +19,7 @@
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
             {                      
-                if(($_REQUEST['username'] == "Admin") &&($_REQUEST['password'] == "Admin"))
+                if(($_REQUEST['username'] == "admin") &&($_REQUEST['password'] == "admin"))
                 {
                     $_SESSION["loggedIn"] = true;
                     $_SESSION["username"] = $_REQUEST['username'];
