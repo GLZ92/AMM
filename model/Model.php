@@ -171,7 +171,7 @@
             }
             else
                 return "ERRORE";
-            $result = self::$mysqli->query("SELECT titolo, autori.nome, autori.cognome, utenti.username FROM libri, autori, utenti WHERE autori.id = libri.autore_id && utenti.id= libri.prestatoA;");
+            $result = self::$mysqli->query("SELECT titolo, autori.nome, autori.cognome, utenti.username, libri.id FROM libri, autori, utenti WHERE autori.id = libri.autore_id && utenti.id= libri.prestatoA;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
             else

@@ -5,7 +5,7 @@
     $libri = array();
     while($row = $result->fetch_row())
     {
-        $libri[] = $row[0];
+        $libri[] = $row;
         echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td>$row[3]</td></tr>";
     }
     echo "</table>";
@@ -16,7 +16,7 @@
         echo "<form action ='index.php?arg=cancellaPrestito' method='POST'>";
         echo "<select name = 'libro'>";
         foreach ($libri as $item)
-            echo "<option value='$item'>$item</option>";
+            echo "<option value='$item[4]'>$item[0]</option>";
         echo "</select><br>";
         echo "<input type='submit' id='conferma' name='conferma' value='cancella prestito'/>";
         echo "</form>";
