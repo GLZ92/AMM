@@ -18,36 +18,25 @@
         public function login()
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
-            {                      
-                if(($_REQUEST['username'] == "admin") &&($_REQUEST['password'] == "admin"))
+            {  
+				$this->connectToDB();
+	       	    if(self::$mysqli->errno > 0)
+              		return "ERRORE";
+                $result = self::$mysqli->query("SELECT username, password, id FROM utenti;");
+                while($row = $result->fetch_row())
                 {
-                    $_SESSION["loggedIn"] = true;
-                    $_SESSION["username"] = $_REQUEST['username'];
-                    $_SESSION["password"] = $_REQUEST['password'];
-                    $_SESSION["admin"] = true;
-
-                    return $_SESSION["username"];
-                }
-                else
-                {
-                    $this->connectToDB();
-            	    if(self::$mysqli->errno > 0)
-                	return "ERRORE";
-                    $result = self::$mysqli->query("SELECT username, password FROM utenti;");
-                    while($row = $result->fetch_row())
-                    {
-                        if(($_REQUEST['username'] == $row[0]) && ($_REQUEST['password'] == $row[1]))
-                        {
-                            $_SESSION["loggedIn"] = true;
-                            $_SESSION["username"] = $_REQUEST['username'];
-                            $_SESSION["password"] = $_REQUEST['password'];
-                            $_SESSION["admin"] = false;
-
-                            return $_SESSION["username"];
-                        }
+	                if(($_REQUEST['username'] == $row[0]) && ($_REQUEST['password'] == $row[1]))
+    	            {
+   			            $_SESSION["loggedIn"] = true;
+                        $_SESSION["username"] = $_REQUEST['username'];
+                        $_SESSION["password"] = $_REQUEST['password'];
+                        if($row[2] == 1)
+							$_SESSION["admin"] = true;
+		
+		                return $_SESSION["username"];
                     }
-                    return "ERRORE";
                 }
+                return "ERRORE";
             }
             else
                 return "ERRORE";
