@@ -2,8 +2,8 @@
     class Model
     {
         private static $mysqli;
-        private static $usernameRoot = "root";
-        private static $passwordRoot = "davide";
+        private static $usernameRoot = "loizeddaGiovanni";
+        private static $passwordRoot = "pipistrello5274";
         public function __construct()
         {
             self::$mysqli = new mysqli();
