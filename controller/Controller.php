@@ -9,7 +9,7 @@
             $this->model = new Model();
         }
 
-        public function invoke($arg)
+        public function content($arg)
         {
             /*se si entra per la prima volta nel sito o se si clicca su login si 
              presenta il menu il login */
@@ -33,14 +33,31 @@
             }
             else if($arg == "libri")
             {
-                $result = $this->model->libri(); 
+                $libri = $this->model->libri(); 
 
-                if($result == "ERRORE LOGIN")
+                if($libri == "ERRORE LOGIN")
                     include 'view/faiLogin.php';
-                else if($result == "ERRORE")
+                else if($libri == "ERRORE")
                     include 'view/errore.php';
                 else
-                    include 'view/elencoLibri.php';
+                {
+                    if(isset($_SESSION['admin']))
+                    {
+                        $autori = $this->model->autori();                 
+                        include 'view/elencoLibriAdmin.php';
+                    }
+                    else
+                        include 'view/elencoLibri.php';
+                }
+            }
+            else if($arg == "nuovoLibro")
+            {
+                $result = $this->model->aggiungiLibro();
+                
+                if($result != "ERRORE")
+                    include 'view/libroRegistrato.php';
+                else
+                    include 'view/errore.php';
             }
             else if($arg == "prestiti")
             {
@@ -60,6 +77,21 @@
                     include 'view/nuovoPrestito.php';
                 else
                     include 'view/soloAdmin.php';   
+            }
+            else if($arg == "nuovoAutore")
+            {
+                include 'view/nuovoAutore.php';
+            }
+            else if($arg == "nuovoAutore2")
+            {             
+                $flag = $this->model->aggiungiAutore();
+                if($flag == "ERRORE")
+                {
+                    echo "ERRORE. Riprovare";
+                    include 'view/nuovoAutore.php';
+                }
+                else
+                    include 'view/autoreRegistrato.php';
             }
             else if($arg == "nuovoPrestito2")
             {             
@@ -101,6 +133,19 @@
                 else
                     include 'view/iscrizioneCompletata.php';
             }
+        }
+    
+        public function sidebar()
+        {
+            if(isset($_SESSION['loggedIn']))
+            {
+                if(isset($_SESSION['admin']))
+                    include "view/sidebar/admin.php";
+                else
+                    include "view/sidebar/user.php";
+            }
+            else
+                include "view/sidebar/guest.php";
         }
     }
 ?>

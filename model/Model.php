@@ -2,8 +2,8 @@
     class Model
     {
         private static $mysqli;
-        private static $usernameRoot = "loizeddaGiovanni";
-        private static $passwordRoot = "pipistrello5274";
+        private static $usernameRoot = "root";
+        private static $passwordRoot = "davide";
         public function __construct()
         {
             self::$mysqli = new mysqli();
@@ -12,7 +12,7 @@
            
         private function connectToDB()
         {
-            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm15_loizeddaGiovanni");
+            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm");
         }
         
         //gestione del tentativo di login
@@ -33,7 +33,7 @@
                         $_SESSION["password"] = $_REQUEST['password'];
                         if($row[2] == 1)
                             $_SESSION["admin"] = true;
-                    
+                        
                         return $_SESSION["username"];
                     }
                 }
@@ -199,6 +199,60 @@
             }
             else
                 "ERRORE";
+        }
+        
+        public function autori()
+        {
+            $this->connectToDB();
+            if(self::$mysqli->errno > 0)
+                return "ERRORE LOGIN";
+            $result = self::$mysqli->query("SELECT nome, cognome, id FROM autori;");
+            if(self::$mysqli->errno > 0)
+                return "ERRORE";
+            else
+                return $result;
+        }
+        
+        public function aggiungiAutore()
+        {
+            if(isset($_REQUEST['nome']) && isset($_REQUEST['cognome']))
+            {
+                $nome = $_REQUEST['nome'];
+                $cognome = $_REQUEST['cognome'];      
+                $this->connectToDB();
+                
+                if(self::$mysqli->errno > 0)
+                    return "ERRORE";    
+                else
+                {
+                    self::$mysqli->query("INSERT INTO autori (nome, cognome) VALUES ('$nome', '$cognome');");
+                    if(self::$mysqli->errno > 0)
+                        return "ERRORE";
+                    else 
+                        return "OK";
+                }                
+            }
+        }
+        
+        public function aggiungiLibro()
+        {
+            if(isset($_REQUEST['titolo']) && isset($_REQUEST['autore']))
+            {
+                $titolo = $_REQUEST['titolo'];
+                $autore = $_REQUEST['autore'];      
+                
+                $this->connectToDB();                
+                if(self::$mysqli->errno > 0)
+                    return "ERRORE";    
+                else
+                {
+                    self::$mysqli->query("INSERT INTO libri (titolo, autore_id) VALUES ('$titolo', '$autore');");
+                    if(self::$mysqli->errno > 0)
+                        return "ERRORE";
+                    else 
+                        return "OK";
+                }                
+            }
         }
 }
 ?>

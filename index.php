@@ -19,12 +19,12 @@
                     include_once("controller/Controller.php");
 
                     $controller = new Controller();
-                    $controller->invoke($value);
+                    $controller->content($value);
                 ?>
             </div>
             <div id="sidebar">			
                 <?php 
-                    if(isset($_SESSION["loggedIn"]))
+/*                    if(isset($_SESSION["loggedIn"]))
                     {
                         if($_SESSION["loggedIn"] == false)
                             echo '<div id="tab"><a href= "index.php?arg=loginAttempt">Login</a></div>';
@@ -39,12 +39,13 @@
                     }
                     else
                         echo '<div id="tab"><a href= "index.php?arg=loginAttempt">Login</a></div>';
-
+*/
+                    $controller->sidebar();
                 ?>
-                <div id ="tab"><a href ="index.php?arg=iscriviti">Iscriviti</div>
+                <!--<div id ="tab"><a href ="index.php?arg=iscriviti">Iscriviti</div>
                 <div id ="tab"><a href ="index.php?arg=nuovoPrestito">Prestito libro</a></div>
-                <div id="tab"><a href= "index.php?arg=prestiti">Prestiti</a></div>
-                <div id="tab"><a href= "index.php?arg=libri">Libri</a></div>
+                <div id="tab"><a href= "index.php?arg=prestiti">Elenco prestiti</a></div>
+                <div id="tab"><a href= "index.php?arg=libri">Elenco libri</a></div>-->
             </div>
 
             <div id="clear"></div>
