@@ -4,7 +4,7 @@
         private static $mysqli;
         private static $usernameRoot = "loizeddaGiovanni";
         private static $passwordRoot = "pipistrello5274";
-        private static $db = amm15_loizeddaGiovanni;
+        private static $db = 'amm15_loizeddaGiovanni';
                 
         public function __construct()
         {
