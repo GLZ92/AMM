@@ -54,7 +54,7 @@
                 $utenti = $this->model->elencoUtenti(); 
                 $libri = $this->model->libriNonPrestati();
                 
-                if($_SESSION['loggedIn'] == true  && $_SESSION['admin'] == 'TRUE')
+                if(isset($_SESSION['loggedIn'])  && isset($_SESSION['admin']))
                     include 'view/nuovoPrestito.php';
                 else
                     include 'view/soloAdmin.php';   

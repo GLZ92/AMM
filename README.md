@@ -15,7 +15,7 @@ L'applicazione soddisfa i seguenti requisiti:
 6)Almeno una funzionalità ajax (presente nel file view/iscrizione.php)
 
 Credenziali:
-1) username = loizeddaGiovanni : password = pipistrello5274
+1) username = admin : password = admin
 2) username = user1 : password = user
 
-Link all'homepage: http://localhost/ammProject/
+Link all'homepage: http://spano.sc.unica.it/amm2015/loizeddaGiovanni
