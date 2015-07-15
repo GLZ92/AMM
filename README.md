@@ -1,7 +1,7 @@
 Questa applicazione permette la gestione di una biblioteca tramite l'uso delle sue funzioni basilari.
-L'applicazione permette l'iscrizioni di nuovi utenti della biblioteca e la gestione dei prestiti dei libri.
+L'applicazione permette l'iscrizioni di nuovi utenti della biblioteca e la gestione degli autori, dei libri e dei loro prestiti.
 
-Nel dettaglio l'admin può vedere l'elenco dei libri, l'elenco dei prestiti, può affidare un libro in prestito a un utente della biblioteca e cancellare un prestito.
+Nel dettaglio l'admin può vedere l'elenco dei libri, l'elenco dei prestiti, può affidare un libro in prestito a un utente della biblioteca e cancellare un prestito e aggiungere nuovi libri e nuovi autori.
 L'utente può vedere l'elenco dei libri presenti nella biblioteca.
 Un visitatore non registrato può invece iscriversi e diventare un utente.
 
