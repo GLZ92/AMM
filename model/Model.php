@@ -6,8 +6,6 @@
         private static $passwordRoot = "davide";
         public function __construct()
         {
-            $usernameRoot = "root";
-            $passwordRoot = "davide";
             self::$mysqli = new mysqli();
             session_start();
         }
