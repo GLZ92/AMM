@@ -6,7 +6,7 @@
     <body>
         <p>Registrazione nuovo cliente</p>
         <form id = "form" action ="index.php?arg=nuovoUtente" method = "POST">
-            <label>Nome</label>
+            <label>Username</label>
             <input type ="text" id="username" name="username" required="required"/><br>
             <label>Password</label>
             <input type ="password" id="password" name="password" required="required"/><br>

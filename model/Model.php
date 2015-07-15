@@ -52,7 +52,7 @@
 
         public function libri()
         {            
-            if($_SESSION["loggedIn"])
+            if(isset($_SESSION["loggedIn"]))
                 $this->connectToDB();
             else
                 return "ERRORE LOGIN";
@@ -65,7 +65,7 @@
         
         public function libriNonPrestati()
         {            
-            if($_SESSION["loggedIn"])
+            if(isset($_SESSION["loggedIn"]))
                 $this->connectToDB();
             else
                 return "ERRORE";
@@ -117,7 +117,7 @@
         
         public function elencoUtenti()
         {
-            if($_SESSION["loggedIn"])
+            if(isset($_SESSION["loggedIn"]))
                 $this->connectToDB();
             else
                 return "ERRORE";
