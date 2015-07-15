@@ -12,7 +12,7 @@
            
         private function connectToDB()
         {
-            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm");
+            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm15_loizeddaGiovanni");
         }
         
         public function login()
