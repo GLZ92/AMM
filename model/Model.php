@@ -121,7 +121,7 @@
                 $this->connectToDB();
             else
                 return "ERRORE";
-            $result = self::$mysqli->query("SELECT username FROM utenti;");
+            $result = self::$mysqli->query("SELECT username FROM utenti WHERE id > 1;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
             else
