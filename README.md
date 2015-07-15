@@ -21,6 +21,7 @@ L'applicazione soddisfa i seguenti requisiti:
 
 Credenziali:
 1) username = admin : password = admin
+
 2) username = user1 : password = user
 
 Link all'homepage: http://spano.sc.unica.it/amm2015/loizeddaGiovanni
