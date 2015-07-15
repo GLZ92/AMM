@@ -58,8 +58,12 @@ body
     padding-top: 20px;
     border-style: solid;
     border-color: blue;
-    border-collapse:collapse;
     border-width:2px;	
+}
+
+div
+{    
+	border-collapse:collapse;
 }
 
 #tab
@@ -72,7 +76,6 @@ body
     line-height: 96px;
     color: blue;
     float:left;
-    border-collapse:collapse;
 }
 
 #tab:hover
