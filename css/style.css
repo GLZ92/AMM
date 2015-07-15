@@ -37,13 +37,11 @@ body
     overflow:scroll;
     padding-bottom: 20px;
     padding-top: 20px;
-    border-collapse: collapse; 
     border-style: solid;
     border-color: blue;
     color:red;
     font-size: 20pt;
     text-align: center;
-
     border-width:2px;	
 }
 
@@ -57,10 +55,9 @@ body
     text-align: center;
     padding-bottom: 20px;
     padding-top: 20px;    
-    border-collapse:collapse;
     border-style: solid;
     border-color: blue;
-    border-width:2px;	
+    border-width:2px 2px 2px 0px;
 }
 
 #tab
