@@ -19,21 +19,21 @@
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
             {  
-				$this->connectToDB();
-	       	    if(self::$mysqli->errno > 0)
-              		return "ERRORE";
+                $this->connectToDB();
+	       	if(self::$mysqli->errno > 0)
+                    return "ERRORE";
                 $result = self::$mysqli->query("SELECT username, password, id FROM utenti;");
                 while($row = $result->fetch_row())
                 {
-	                if(($_REQUEST['username'] == $row[0]) && ($_REQUEST['password'] == $row[1]))
+	            if(($_REQUEST['username'] == $row[0]) && ($_REQUEST['password'] == $row[1]))
     	            {
-   			            $_SESSION["loggedIn"] = true;
+   		        $_SESSION["loggedIn"] = true;
                         $_SESSION["username"] = $_REQUEST['username'];
                         $_SESSION["password"] = $_REQUEST['password'];
                         if($row[2] == 1)
-							$_SESSION["admin"] = true;
-		
-		                return $_SESSION["username"];
+                            $_SESSION["admin"] = true;
+                    
+                        return $_SESSION["username"];
                     }
                 }
                 return "ERRORE";
