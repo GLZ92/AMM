@@ -37,12 +37,13 @@ body
     overflow:scroll;
     padding-bottom: 20px;
     padding-top: 20px;
+    border-collapse: collapse; 
     border-style: solid;
     border-color: blue;
     color:red;
     font-size: 20pt;
     text-align: center;
-    border-collapse:collapse; 
+
     border-width:2px;	
 }
 
@@ -55,10 +56,10 @@ body
     height:480px;
     text-align: center;
     padding-bottom: 20px;
-    padding-top: 20px;
+    padding-top: 20px;    
+    border-collapse:collapse;
     border-style: solid;
     border-color: blue;
-    border-collapse:collapse;
     border-width:2px;	
 }
 
