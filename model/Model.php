@@ -2,8 +2,10 @@
     class Model
     {
         private static $mysqli;
-        private static $usernameRoot = "root";
-        private static $passwordRoot = "davide";
+        private static $usernameRoot = "loizeddaGiovanni";
+        private static $passwordRoot = "pipistrello5274";
+        private static $db = amm15_loizeddaGiovanni;
+                
         public function __construct()
         {
             self::$mysqli = new mysqli();
@@ -12,7 +14,7 @@
            
         private function connectToDB()
         {
-            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, "amm");
+            @self::$mysqli->connect("localhost", self::$usernameRoot, self::$passwordRoot, self::$db);
         }
         
         //gestione del tentativo di login
