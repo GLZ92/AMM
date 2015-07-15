@@ -19,7 +19,7 @@
         {
             if(isset($_REQUEST['username']) && isset($_REQUEST['password']))
             {                      
-                if(($_REQUEST['username'] == self::$usernameRoot) &&($_REQUEST['password'] == self::$passwordRoot))
+                if(($_REQUEST['username'] == "Admin") &&($_REQUEST['password'] == "Admin"))
                 {
                     $_SESSION["loggedIn"] = true;
                     $_SESSION["username"] = $_REQUEST['username'];
@@ -31,6 +31,8 @@
                 else
                 {
                     $this->connectToDB();
+            	    if(self::$mysqli->errno > 0)
+                	return "ERRORE";
                     $result = self::$mysqli->query("SELECT username, password FROM utenti;");
                     while($row = $result->fetch_row())
                     {
