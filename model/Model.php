@@ -253,14 +253,14 @@
         
         public function cancellaLibro()
         {
-            if(isset($_REQUEST['id']))
+            if(isset($_REQUEST['cancella']))
             {
                 $this->connectToDB();
                 if(self::$mysqli->errno > 0)
                     return "ERRORE";
                 else
                 {
-                    $id = $_REQUEST['id'];
+                    $id = $_REQUEST['cancella'];
                     self::$mysqli->query("DELETE FROM libri WHERE id = '$id';");
                     if(self::$mysqli->errno > 0)
                         return "ERRORE";
