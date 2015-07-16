@@ -4,6 +4,8 @@ L'applicazione permette l'iscrizioni di nuovi utenti della biblioteca e la gesti
 Nel dettaglio l'admin può vedere l'elenco dei libri, l'elenco dei prestiti, può affidare un libro in prestito a un utente della biblioteca e cancellare un prestito, aggiungere o rimuovere libri e aggiungere nuovi autori.
 L'utente può vedere l'elenco dei libri presenti nella biblioteca.
 Un visitatore non registrato può invece iscriversi e diventare un utente.
+Tutto ciò avviene tramite l'uso di un menu laterale, posto a destra dal quale è possibile accedere alle varie funzionalità del sito, naturalmente a
+seconda del fatto che ci si loggi come utente o come admin.
 
 L'applicazione soddisfa i seguenti requisiti:
 
