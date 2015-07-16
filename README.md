@@ -8,15 +8,21 @@ Un visitatore non registrato può invece iscriversi e diventare un utente.
 L'applicazione soddisfa i seguenti requisiti:
 
 1)Utilizzo di HTML e CSS
+
 2)Utilizzo di PHP e MySQL
+
 3)Utilizzo del pattern MVC
+
 4)Almeno due ruoli (un utente "admin" che ha i privilegi da amministratore e un utente "user1")
+
 5)Almeno una transazione (usato nella classe Model all'interno della funzione nuovoUtente())
+
 6)Almeno una funzionalità ajax (presente nel file view/iscrizione.php)
 
 Credenziali:
 
 1) username = admin : password = admin
+
 2) username = user1 : password = user
 
 Link all'homepage: http://spano.sc.unica.it/amm2015/loizeddaGiovanni
