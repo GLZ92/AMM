@@ -261,7 +261,8 @@
                 else
                 {
                     $id = $_REQUEST['cancella'];
-                    self::$mysqli->query("DELETE FROM libri WHERE id = '$id' AND prestatoA IS NULL;");
+                    $r = self::$mysqli->query("DELETE FROM libri WHERE id = '$id' AND prestatoA IS NULL;");
+                    echo $r;
                     if(self::$mysqli->errno > 0)
                         return "ERRORE";
                     else 
