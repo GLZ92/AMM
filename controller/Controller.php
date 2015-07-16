@@ -61,26 +61,33 @@
             }
             else if($arg == "prestiti")
             {
-                $result = $this->model->prestiti();
-                
-                if($result == "ERRORE")
-                    include 'view/soloAdmin.php';
+                if(isset($_SESSION["loggedIn"]) && isset($_SESSION["admin"]))
+                {
+                    $result = $this->model->prestiti();
+
+                    if($result == "ERRORE")
+                        include 'view/errore.php';
+                    else
+                        include 'view/elencoPrestiti.php';
+                }
                 else
-                    include 'view/elencoPrestiti.php';
+                    include 'view/soloAdmin.php';
             }
             else if($arg == "nuovoPrestito")
-            {             
-                $utenti = $this->model->elencoUtenti(); 
-                $libri = $this->model->libriNonPrestati();
-                
+            {                             
                 if(isset($_SESSION['loggedIn'])  && isset($_SESSION['admin']))
+                {
+                    $utenti = $this->model->elencoUtenti(); 
+                    $libri = $this->model->libriNonPrestati();
                     include 'view/nuovoPrestito.php';
+                }
                 else
                     include 'view/soloAdmin.php';   
             }
             else if($arg == "nuovoAutore")
             {
-                include 'view/nuovoAutore.php';
+                if(isset($_SESSION['admin']))
+                    include 'view/nuovoAutore.php';
             }
             else if($arg == "nuovoAutore2")
             {             

@@ -57,10 +57,10 @@
         //restituisce l'elenco dei libri presenti nel database
         public function libri()
         {            
-            if(isset($_SESSION["loggedIn"]))
-                $this->connectToDB();
-            else
+            $this->connectToDB();
+            if(self::$mysqli->errno > 0)
                 return "ERRORE LOGIN";
+            
             $result = self::$mysqli->query("SELECT titolo, nome, cognome FROM libri, autori WHERE autori.id = libri.autore_id;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
@@ -71,10 +71,10 @@
         //restituisce l'elenco dei libri non prestati
         public function libriNonPrestati()
         {            
-            if(isset($_SESSION["loggedIn"]))
-                $this->connectToDB();
-            else
+            $this->connectToDB();
+            if(self::$mysqli->errno > 0)
                 return "ERRORE";
+            
             $result = self::$mysqli->query("SELECT titolo, libri.id, nome, cognome FROM libri, autori WHERE autori.id = libri.autore_id AND prestatoA IS NULL;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
@@ -125,9 +125,8 @@
         //restituisce l'elenco degli utenti, escluso l'admin (ha id 1)
         public function elencoUtenti()
         {
-            if(isset($_SESSION["loggedIn"]))
-                $this->connectToDB();
-            else
+            $this->connectToDB();
+            if(self::$mysqli->errno > 0)
                 return "ERRORE";
             $result = self::$mysqli->query("SELECT username FROM utenti WHERE id > 1;");
             if(self::$mysqli->errno > 0)
@@ -164,15 +163,10 @@
         //restituisce l'elenco dei libri prestati
         public function prestiti()
         {            
-            if(isset($_SESSION["loggedIn"]) && isset($_SESSION["admin"]))
-            {
-                if($_SESSION["admin"] == true)
-                    $this->connectToDB();
-                else
-                    return "ERRORE";
-            }
-            else
+            $this->connectToDB();
+            if(self::$mysqli->errno > 0)
                 return "ERRORE";
+            
             $result = self::$mysqli->query("SELECT titolo, autori.nome, autori.cognome, utenti.username, libri.id FROM libri, autori, utenti WHERE autori.id = libri.autore_id && utenti.id= libri.prestatoA;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
