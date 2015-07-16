@@ -61,7 +61,7 @@
             if(self::$mysqli->errno > 0)
                 return "ERRORE LOGIN";
             
-            $result = self::$mysqli->query("SELECT titolo, nome, cognome FROM libri, autori WHERE autori.id = libri.autore_id;");
+            $result = self::$mysqli->query("SELECT titolo, nome, cognome, id FROM libri, autori WHERE autori.id = libri.autore_id;");
             if(self::$mysqli->errno > 0)
                 return "ERRORE";
             else

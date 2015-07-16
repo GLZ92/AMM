@@ -61,7 +61,7 @@
             }
             else if($arg == "prestiti")
             {
-                if(isset($_SESSION["loggedIn"]) && isset($_SESSION["admin"]))
+                if(sset($_SESSION["admin"]))
                 {
                     $result = $this->model->prestiti();
 
@@ -75,7 +75,7 @@
             }
             else if($arg == "nuovoPrestito")
             {                             
-                if(isset($_SESSION['loggedIn'])  && isset($_SESSION['admin']))
+                if(isset($_SESSION['admin']))
                 {
                     $utenti = $this->model->elencoUtenti(); 
                     $libri = $this->model->libriNonPrestati();
