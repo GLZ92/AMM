@@ -197,6 +197,7 @@
                 "ERRORE";
         }
         
+        //restituisce l'elenco degli autori
         public function autori()
         {
             $this->connectToDB();
@@ -209,6 +210,7 @@
                 return $result;
         }
         
+        //aggiunge un autore
         public function aggiungiAutore()
         {
             if(isset($_REQUEST['nome']) && isset($_REQUEST['cognome']))
@@ -230,6 +232,7 @@
             }
         }
         
+        //aggiunge un libro
         public function aggiungiLibro()
         {
             if(isset($_REQUEST['titolo']) && isset($_REQUEST['autore']))
@@ -251,6 +254,7 @@
             }
         }
         
+        //cancella un libro
         public function cancellaLibro()
         {
             if(isset($_REQUEST['cancella']))
