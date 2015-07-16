@@ -11,7 +11,7 @@
             echo "<table align='center'>";
             echo "<tr><th>Titolo</th><th>Autore</th></tr>";
             while($row = $libri->fetch_row())
-		echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td><input type='submit' id='cancella$row[3]' name='cancella$row[3]' value='Cancella'/></tr>";
+		echo "<tr> <td>$row[0]</td> <td>$row[1] $row[2]</td> <td><button type='submit' id='cancella$row[3]' name='cancella$row[3]' value='$row[3]'>Cancella</button></tr>";
             echo "</table><br><br>";
             echo "</form>";
             

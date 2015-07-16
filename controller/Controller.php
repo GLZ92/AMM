@@ -52,16 +52,34 @@
             }
             else if($arg == "nuovoLibro")
             {
-                $result = $this->model->aggiungiLibro();
-                
-                if($result != "ERRORE")
-                    include 'view/libroRegistrato.php';
+                if(isset($_SESSION["admin"]))
+                {
+                    $result = $this->model->aggiungiLibro();
+
+                    if($result != "ERRORE")
+                        include 'view/libroRegistrato.php';
+                    else
+                        include 'view/errore.php';
+                }
                 else
-                    include 'view/errore.php';
+                    include 'view/soloAdmin.php';
+            }
+            else if($arg == "cancellaLibro")
+            {
+                if(isset($_SESSION["admin"]))
+                {
+                    $result = $this->model->cancellaLibro();
+                    if($result != "ERRORE")
+                        include 'view/libroCancellato.php';
+                    else
+                        include 'view/errore.php';
+                }
+                else
+                    include 'view/soloAdmin.php';                
             }
             else if($arg == "prestiti")
             {
-                if(sset($_SESSION["admin"]))
+                if(isset($_SESSION["admin"]))
                 {
                     $result = $this->model->prestiti();
 

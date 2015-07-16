@@ -250,5 +250,26 @@
                 }                
             }
         }
+        
+        public function cancellaLibro()
+        {
+            if(isset($_REQUEST['id']))
+            {
+                $this->connectToDB();
+                if(self::$mysqli->errno > 0)
+                    return "ERRORE";
+                else
+                {
+                    $id = $_REQUEST['id'];
+                    self::$mysqli->query("DELETE FROM libri WHERE id = '$id';");
+                    if(self::$mysqli->errno > 0)
+                        return "ERRORE";
+                    else 
+                        return "OK";
+                }
+            }
+            else
+                return "ERRORE";
+        }
 }
 ?>
