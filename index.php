@@ -22,7 +22,7 @@
                     $controller->content($value);
                 ?>
             </div>
-            <div id="sidebar">			
+            <div id= "sidebar">			
                 <?php 
                     $controller->sidebar();
                 ?>
