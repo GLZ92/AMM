@@ -24,30 +24,9 @@
             </div>
             <div id="sidebar">			
                 <?php 
-/*                    if(isset($_SESSION["loggedIn"]))
-                    {
-                        if($_SESSION["loggedIn"] == false)
-                            echo '<div id="tab"><a href= "index.php?arg=loginAttempt">Login</a></div>';
-                        else
-                        {
-                            $user = $_SESSION['username'];
-                            echo '<div id="tab"><a href= "index.php?arg=logout">';
-                            echo $user;
-                            echo " / logout";
-                            echo '</a></div>';
-                        }
-                    }
-                    else
-                        echo '<div id="tab"><a href= "index.php?arg=loginAttempt">Login</a></div>';
-*/
                     $controller->sidebar();
                 ?>
-                <!--<div id ="tab"><a href ="index.php?arg=iscriviti">Iscriviti</div>
-                <div id ="tab"><a href ="index.php?arg=nuovoPrestito">Prestito libro</a></div>
-                <div id="tab"><a href= "index.php?arg=prestiti">Elenco prestiti</a></div>
-                <div id="tab"><a href= "index.php?arg=libri">Elenco libri</a></div>-->
             </div>
-
             <div id="clear"></div>
             <div id="footer"></div>
         </div>
